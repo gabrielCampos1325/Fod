@@ -1,0 +1,12 @@
+Codigo: 123 precio: 45000.00 marca:  MOTOROLA
+Stock disp: 1000 stock minimo: 36
+Nombre: 123
+Codigo: 324 precio: 660000.00 marca:  SAMSUNG
+Stock disp: 2 stock minimo: 38
+Nombre: 324
+Codigo: 453 precio: 100000.00 marca:  IPHONE
+Stock disp: 2 stock minimo: 1
+Nombre: 453
+Codigo: 3732 precio: 34.00 marca: asj
+Stock disp: 65 stock minimo: 40
+Nombre: 3732
