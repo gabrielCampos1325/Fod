@@ -1,0 +1,5 @@
+{
+  "editor.formatOnSave": true,
+  "omnipascal.defaultDevelopmentEnvironment": "FreePascal",
+  "omnipascal.namingConventionString": "pascalCase"
+}
