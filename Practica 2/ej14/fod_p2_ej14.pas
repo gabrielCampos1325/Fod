@@ -39,10 +39,11 @@ var
 begin
 	if (regd1.destino < regd2.destino) or 
 	
-	((regd1.destino =  regd2.destino) and (regd1.fecha =  regd2.fecha)) or 
+	((regd1.destino =  regd2.destino) and (regd1.fecha <  regd2.fecha)) or 
 	
 	((regd1.destino =  regd2.destino) and (regd1.fecha =  regd2.fecha) and
-	(regd1.horaSalida =  regd2.horaSalida))
+	
+	(regd1.horaSalida <  regd2.horaSalida))
 	// vector?
 end;
 
