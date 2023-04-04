@@ -45,7 +45,21 @@ begin
 	
 	(regd1.horaSalida <  regd2.horaSalida))
 	// vector?
+end; 
+
+
+procedure minimo(var regd1, regd2, min: regDetalle);
+var
+begin
+	if (regd1.destino < regd2.destino){
+	} else {
+		if (regd1.fecha < regd2.fecha){
+		} else {
+			if (regd1.horaSalida <  regd2.horaSalida){}
+			}
 end;
+
+
 
 procedure actualizar();
 var
