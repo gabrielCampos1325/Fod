@@ -13,6 +13,7 @@ type
 procedure crearArchivo(var emp: arch_emp);
 		procedure leerEmp(var e: empleado);
 		begin
+			writeln('Ingrese un empleado');
 			readln(e.apellido);
 			if (e.apellido<>'fin') then begin
 				e.nombre:= IntToHex(Random(Int64($7fffffffffffffff)), 16);
@@ -25,12 +26,10 @@ procedure crearArchivo(var emp: arch_emp);
 var
 	un_emp: empleado;
 begin	
-	rewrite(emp);
-	writeln('Ingrese un empleado');
+	rewrite(emp);	
 	leerEmp(un_emp);
 	while (un_emp.apellido<>'fin') do begin
 		write(emp, un_emp);
-		writeln('Ingrese un empleado');
 		leerEmp(un_emp);
 	end;
 	close(emp);	
@@ -43,6 +42,7 @@ begin
 	writeln(e.dni);
 	writeln(e.edad);
 	writeln(e.num);
+	writeln();
 end;
 
 procedure mostrarEmpDet(var emp: arch_emp);
@@ -66,8 +66,7 @@ var
 begin
 	while not eof(emp) do begin
 		read(emp, e);
-		imprimirEmp(e);
-		writeln();
+		imprimirEmp(e);		
 	end;
 	close(emp);	
 end;
@@ -80,7 +79,6 @@ begin
 		read(emp, e);
 		if (e.edad>70) then begin
 			imprimirEmp(e);
-			writeln();
 		end;
 	end;
 	close(emp);	

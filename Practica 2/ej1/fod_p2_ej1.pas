@@ -104,7 +104,6 @@ begin
 		while (aux = i.codigo) do begin //buscar si hay varios con el mismo codigo
 			total:= total + i.monto; //vamos sumando en total
 			leer(det, i); //leer otro registro detalle
-			writeln('LLEGUE');
 		end;
 		e.codigo:= aux;
 		e.monto:= total;

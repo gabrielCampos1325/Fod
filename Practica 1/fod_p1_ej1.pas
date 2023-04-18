@@ -17,7 +17,7 @@ begin
 	while (num<>30000) do begin
 		write(enteros, num);
 		readln(num);
-	end;
+	end;	
 	close(enteros);
 end.
 

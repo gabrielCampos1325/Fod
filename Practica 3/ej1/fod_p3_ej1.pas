@@ -1,6 +1,8 @@
-program fod_p1_ej3;
-
+program fod_p3_ej1;
 Uses sysutils, crt;
+
+const
+	valoralto = 9999;
 
 type
 	empleado = record
@@ -170,7 +172,47 @@ begin
 	close(emp);
 	close(sinDniText);
 end;
-	
+
+procedure leer(var emp:arch_emp; var reg:empleado);
+begin
+	if not eof(mae) then
+		read(mae, reg)
+	else
+		reg.num:= valoralto;
+end;
+
+procedure borrarEmp(var emp:arch_emp);
+var
+	num: integer;
+	ultReg, emp: empleado; 
+begin
+	writeln('Ingrese el numero del empleado a borrar');
+	readln(num);
+	seek(emp, filezise(emp));
+	read(emp, ultReg);
+	if (ultReg.num <> num) then begin
+		seek(emp, 0);
+		leer(emp, reg);
+		while (reg.num <> valoralto) and (reg.num <> num) do begin
+			leer(emp, reg);
+		end;
+		if (reg.num <> valoralto) do begin
+			seek(emp, filepos(emp)-1);
+			write(emp, ultReg);
+			seek(emp, filezise(emp)-1);
+			truncate(emp);
+			writeln('Se elimino el empleado y se coloco en su lugar el ultimo'); 
+		end else
+			writeln('No se encontro el empleado ingresado');
+	end 
+	else begin
+		seek(emp, filezise(emp)-1);
+		truncate(emp);
+		writeln('Se elimino el empleado.'); 
+	end;
+	close(emp);
+end;
+
 procedure bienvenida(var emp: arch_emp; var empText, sinDniText: Text);
 var
 	num: integer;
@@ -197,6 +239,7 @@ begin
 			writeln('5. Modificar empleado');
 			writeln('6. Exportar empleados a .txt');
 			writeln('7. Exportar empleados sin DNI a .txt');
+			writeln('8. Borrar empleado');
 			readln(num);
 			reset(emp);			
 			case num of
@@ -220,6 +263,9 @@ begin
 				end;
 				7: begin				 	
 					exportarEmpSinDniTxt(emp,sinDniText);
+				end;
+				8: begin
+					borrarEmp(emp);
 				end;
 			end;
 		end else

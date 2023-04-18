@@ -111,7 +111,7 @@ var
 	st: string;
 
 begin
-	assign(mae, './var/log/maestro'); // esta bien asi?
+	assign(mae, './var/log/maestro');
 	for i:= 1 to n do begin
 		Str(i, st);
 		assign(vD[i], 'detalle' + st);
